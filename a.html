@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Clona cartão.cbt</title>
+        <style>
+            body{
+                font-size: 20pt;
+                font-family: Verdana, Geneva, Tahoma, sans-serif;
+                background-color: rgb(0, 0, 0);
+                color: rgb(255, 255, 255);
+            } div {
+                font-size: 50pt;
+            } #t8 {
+                width: 300px;
+                height: 20px;
+            } #t15 {
+                font-size: 30pt;
+            } h1 {
+                text-shadow: 0px 0px 10px rgb(255, 174, 251);
+                animation: flutua 3s infinite ease-out;
+            }
+            @keyframes flutua {
+                0% {
+                   transform: translate(0px, 0px);
+                }
+                20% {
+                   transform: translate(0px, 10px);
+                }
+                50% {
+                   transform: translate(0px, 20px);
+                }
+                70% {
+                    transform: translate(0px, 10px);
+                }
+                100% {
+                   transform: translate(0px, 0px);
+                }
+            } #t35 {
+                font-size: 15pt;
+            }
+            </style>
+</head>
+<body>
+    <center>
+        <h1>Ignore o titúlo</h1>
+    </center>
+        <h5>Digite o seu nome : <input type="text" maxlength="40" id="t1"></h5>
+        <h5>Digite seu CPF : <input type="text" maxlength="11" id="t2"></h5>
+        <h5>Digite seu email : <input type="text" id="t3"></h5>
+        <h5>Genêro : </h5>
+        <input type="radio" id="t4" name="genero" value="F">Feminino <br>
+        <input type="radio" name="genero" value="M">Masculino <br><br>
+        <h5>Vossa senhoria é um aluno da federal? <input type="checkbox" id="t5"> </h5>
+        <div id="t6"></div>
+        <h5 id="t7"></h5> <select id="t8"></select>
+        <h5>Tem necessidades especiais?</h5>
+        <input type="radio" id="t9" value="s" name="necessidade">Sim <br>
+        <input type="radio" id="t16" value="n" name="necessidade">Não <br>
+        <div id="t15">Se sim quais?</div>
+        Deficiência visual <input type="checkbox" id="t10"> <br>
+        Auditiva <input type="checkbox" id="t11"> <br>
+        Motora <input type="checkbox" id="t12"> <br>
+        Mental <input type="checkbox" id="t13"> <br>
+        Paralisia cerebral <input type="checkbox" id="t14"> <br>
+        <br>
+        <br>
+        <h5>Quais são suas áreas de interesse?</h5> <br>
+        Tecnologia <input type="checkbox" id="t17"> <br>
+        Exatas <input type="checkbox" id="t18"> <br>
+        Humanas <input type="checkbox" id="t19"> <br>
+        Biológicas <input type="checkbox" id="t20"> <br>
+        Educação <input type="checkbox" id="t21"> <br>
+        <br>
+        <br>
+        <h5>Seus Hobbies</h5> <br>
+        Jardinagem <input type="checkbox" id="t22"> <br>
+        Artesanato <input type="checkbox" id="t23"> <br>
+        Leitura <input type="checkbox" id="t24"> <br>
+        Escrita <input type="checkbox" id="t25"> <br>
+        Música <input type="checkbox" id="t26"> <br>
+        Pintura <input type="checkbox" id="t27"> <br>
+        Redes sociais <input type="checkbox" id="t28"> <br>
+        Viagens <input type="checkbox" id="t29"> <br>
+        Séries <input type="checkbox" id="t30"> <br>
+        Academia <input type="checkbox" id="t31"> <br>
+        Outros <input type="checkbox" id="t32"> <br>
+        <br>
+        <br>
+        <h5>Digite suas sugestões aqui : </h5>
+        <textarea id="t33" cols="70" rows="20">Digite aqui suas sugestões</textarea>
+        <br>
+        <br>
+        <br>
+        <input type="button" value="Enviar" id="t34">
+        <div id="t35"></div>
+    
+    <script>
+        var c = 1;
+        var tx1 = document.getElementById('t1');
+        var tx2 = document.getElementById('t2');
+        var tx3 = document.getElementById('t3');
+        var tx4 = document.getElementById('t4');
+        var tx5 = document.getElementById('t5');
+        var tx6 = document.getElementById('t6');
+        var tx7 = document.getElementById('t7');
+        var tx8 = document.getElementById('t8');
+        var tx9 = document.getElementById('t9');
+        var tx10 = document.getElementById('t10');
+        var tx11 = document.getElementById('t11');
+        var tx12 = document.getElementById('t12');
+        var tx13 = document.getElementById('t13');
+        var tx14 = document.getElementById('t14');
+        var tx15 = document.getElementById('t15');
+        var tx16 = document.getElementById('t16');
+        var tx17 = document.getElementById('t17');
+        var tx18 = document.getElementById('t18');
+        var tx19 = document.getElementById('t19');
+        var tx20 = document.getElementById('t20');
+        var tx21 = document.getElementById('t21');
+        var tx22 = document.getElementById('t22');
+        var tx23 = document.getElementById('t23');
+        var tx24 = document.getElementById('t24');
+        var tx25 = document.getElementById('t25');
+        var tx26 = document.getElementById('t26');
+        var tx27 = document.getElementById('t27');
+        var tx28 = document.getElementById('t28');
+        var tx29 = document.getElementById('t29');
+        var tx30 = document.getElementById('t30');
+        var tx31 = document.getElementById('t31');
+        var tx32 = document.getElementById('t32');
+        var tx33 = document.getElementById('t33');
+        var tx34 = document.getElementById('t34');
+        var tx35 = document.getElementById('t35');
+        tx5.addEventListener('click', () => {
+            if(tx5.checked == false) {
+                tx6.innerHTML = "";
+                tx7.innerHTML = "";
+            }
+            if(tx5.checked == true ) {
+                tx6.innerHTML = "<strong>Muito BURRO</strong>";
+                tx7.innerHTML = "Seu Campus : ";
+                for(c; c <= 37; c++) {
+                    var item = document.createElement('option');
+                    switch(c) {
+                        case 1:
+                            item.text = "Campus Araraquara"; 
+                        break
+                        case 2:
+                            item.text = "Campus Avaré"; 
+                        break
+                        case 3:
+                            item.text = "Campus Barretos"; 
+                        break
+                        case 4:
+                            item.text = "Campus Birigui"; 
+                        break
+                        case 5:
+                            item.text = "Campus Boituva"; 
+                        break
+                        case 6:
+                            item.text = "Campus Bragança"; 
+                        break
+                        case 7:
+                            item.text = "Campus Campinas"; 
+                        break
+                        case 8:
+                            item.text = "Campus Campos do Jordão"; 
+                        break
+                        case 9:
+                            item.text = "Campus Capivara"; 
+                        break
+                        case 10:
+                            item.text = "Campus Caraguatatuba"; 
+                        break
+                        case 11:
+                            item.text = "Campus Catanduva"; 
+                        break
+                        case 12:
+                            item.text = "Campus Cubatão"; 
+                        break
+                        case 13:
+                            item.text = "Campus Guarulhos"; 
+                        break
+                        case 14:
+                            item.text = "Campus Hortolândia"; 
+                        break
+                        case 15:
+                            item.text = "Campus Avançado Ilha Solteira"; 
+                        break
+                        case 16:
+                            item.text = "Campus Itapetininga"; 
+                        break
+                        case 17:
+                            item.text = "Campus Itaquaquecetuba"; 
+                        break
+                        case 18:
+                            item.text = "Campus Jacareí"; 
+                        break
+                        case 19:
+                            item.text = "Campus Avançado Jundiaí"; 
+                        break
+                        case 20:
+                            item.text = "Campus Matão"; 
+                        break
+                        case 21:
+                            item.text = "Campus Piracicaba"; 
+                        break
+                        case 22:
+                            item.text = "Campus Pirituba"; 
+                        break
+                        case 23:
+                            item.text = "Campus Presidente Epitácio"; 
+                        break
+                        case 24:
+                            item.text = "Campus Registro"; 
+                        break
+                        case 25:
+                            item.text = "Campus Salto"; 
+                        break
+                        case 26:
+                            item.text = "Campus São Carlos"; 
+                        break
+                        case 27:
+                            item.text = "Campus São João de Boa Vista"; 
+                        break
+                        case 28:
+                            item.text = "Campus São José dos Campos"; 
+                        break
+                        case 29:
+                            item.text = "Campus São José dos Rios Preto"; 
+                        break
+                        case 30:
+                            item.text = "Campus São Miguel Paulista"; 
+                        break
+                        case 31:
+                            item.text = "Campus São Paulo"; 
+                        break
+                        case 32:
+                            item.text = "Campus São Roque"; 
+                        break
+                        case 33:
+                            item.text = "Campus Sertãozinho"; 
+                        break
+                        case 34:
+                            item.text = "Campus Sorocaba"; 
+                        break
+                        case 35:
+                            item.text = "Campus Suzano"; 
+                        break
+                        case 36:
+                            item.text = "Campus Avançado Tupã"; 
+                        break
+                        case 37:
+                            item.text = "Campus Votuporanga";
+                        break
+                    }
+                    tx8.appendChild(item);
+                }
+            }
+        })
+                tx16.addEventListener('click', () => {
+                    if(tx10.checked == true || tx11.checked == true || tx12.checked == true || tx13.checked == true || tx14.checked == true) {
+                        tx15.innerHTML = "<strong>Você tem algum tipo de problema?</strong>";
+                    }
+                })
+                tx10.addEventListener('click', () => {
+                    if(tx16.checked == true && ( tx11.checked == true || tx12.checked == true || tx13.checked == true || tx14.checked == true)) {
+                        tx15.innerHTML = "<strong>Você tem algum tipo de problema?</strong>";
+                    }
+                })
+                tx11.addEventListener('click', () => {
+                    if(tx16.checked == true && (tx10.checked == true || tx12.checked == true || tx13.checked == true || tx14.checked == true)) {
+                        tx15.innerHTML = "<strong>Você tem algum tipo de problema?</strong>";
+                    }
+                })
+                tx12.addEventListener('click', () => {
+                    if(tx16.checked == true && (tx11.checked == true || tx10.checked == true || tx13.checked == true || tx14.checked == true)) {
+                        tx15.innerHTML = "<strong>Você tem algum tipo de problema?</strong>";
+                    }
+                })
+                tx13.addEventListener('click', () => {
+                    if(tx16.checked == true && (tx11.checked == true || tx12.checked == true || tx10.checked == true || tx14.checked == true)) {
+                        tx15.innerHTML = "<strong>Você tem algum tipo de problema?</strong>";
+                    }
+                })
+                tx14.addEventListener('click', () => {
+                    if(tx16.checked == true && (tx11.checked == true || tx12.checked == true || tx13.checked == true || tx10.checked == true)) {
+                        tx15.innerHTML = "<strong>Você tem algum tipo de problema?</strong>";
+                    }
+                })
+                tx33.addEventListener('click', () => {
+                    tx33.innerHTML = "";
+                })
+                tx34.addEventListener('click', () => {
+                    tx35.innerHTML = `Seu nome é ${tx1.value}, seu CPF é ${tx2.value}, <br>
+                    seu email ${tx3.value}, você ${(tx5.checked == true?" é ": " não é ")} ${(tx4.checked == true?"aluna " : "aluno ")} da federal `;
+                    if(tx5.checked == true) {
+                        tx35.innerHTML += `<br>Você é do ${tx8.value}<br>`;
+                    }
+                    tx35.innerHTML += `Você ${(tx9.checked == true?"tem " : "não tem")} necessidades especiais <br> `;
+                    if(tx9.checked == true) {
+                        tx35.innerHTML += `E elas são : <br>
+                        ${(tx10.checked == true?"Deficiência visual": "")} <br>
+                        ${(tx11.checked == true?"Auditiva": "")} <br>
+                        ${(tx12.checked == true?"Motora": "")} <br>
+                        ${(tx13.checked == true?"Mental": "")} <br>
+                        ${(tx14.checked == true?"Paralisia Cerebral": "")} <br>`;
+                    }
+                    tx35.innerHTML += `Suas áreas de interesse são <br>
+                    ${(tx17.checked == true?"Tecnologia":"")} <br>
+                    ${(tx18.checked == true?"Exatas":"")} <br>
+                    ${(tx19.checked == true?"Humanas":"")} <br>
+                    ${(tx20.checked == true?"Biologia":"")} <br>
+                    ${(tx21.checked == true?"Educação":"")} <br>
+                    <br>
+                    Seus Hobbies são : <br>
+                    ${(tx22.checked == true?"Jardinagem":"")} <br>
+                    ${(tx23.checked == true?"Artesanato":"")} <br>
+                    ${(tx24.checked == true?"Leitura":"")} <br>
+                    ${(tx25.checked == true?"Escrita":"")} <br>
+                    ${(tx26.checked == true?"Música":"")} <br>
+                    ${(tx27.checked == true?"Pintura":"")} <br>
+                    ${(tx28.checked == true?"Redes sociais":"")} <br>
+                    ${(tx29.checked == true?"Viagens":"")} <br>
+                    ${(tx30.checked == true?"Séries":"")} <br>
+                    ${(tx31.checked == true?"Academia":"")} <br>
+                    ${(tx32.checked == true?"Outros":"")} <br>
+                    <br>
+                    Não ligamos para sua sugestão <br>
+                    mas está aqui : <br>
+                    ${tx33.value}`;
+
+                })
+        </script>
+</body>
+</html>
